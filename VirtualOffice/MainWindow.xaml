@@ -1,0 +1,82 @@
+﻿<Window x:Class="VirtualOffice.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VirtualOffice"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        
+        
+        <Label Content="Employees Panel" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" FontSize="22" HorizontalAlignment="Center"/>
+        <Button Name="btnRegisterEmployee" Content="Register new employee" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="150" Height="25" BorderBrush="LimeGreen" BorderThickness="1" Background="White" Click="BtnRegisterEmployee_Click" />
+        <Button Visibility="Hidden" Name="btnEditEmployee" Content="Edit chosen Employee" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="150" Height="25" BorderBrush="LimeGreen" BorderThickness="1" Background="Green" Foreground="White" Click="BtnEditEmployee_Click" />
+        <Border BorderBrush="Black" Grid.Column="5"  Grid.Row="1" Grid.RowSpan="8" BorderThickness="1" CornerRadius="10" Margin="-5"/>
+
+        <!--Editing page-->
+        <Border Name="brEdit" Visibility="Visible" BorderBrush="Black" Grid.Column="1"  Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="6" BorderThickness="1" CornerRadius="10" Margin="-5"/>
+        <!--Firstname-->
+        <Label Name="lblName" Visibility="Visible" Content="Firstname" Grid.Column="1"  Grid.Row="3"/>
+        <TextBox Visibility="Visible" Name="txtFname" Grid.Column="1"  Grid.Row="3" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+
+        <!--Lastname-->
+        <Label Name="lblLName" Visibility="Visible" Content="Lastname" Grid.Column="3"  Grid.Row="3"/>
+        <TextBox Visibility="Visible" Name="txtLname" Grid.Column="3"  Grid.Row="3" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+
+        <!--Fullname-->
+        <Label Name="lblFullName" Visibility="Visible" Content="Fullname" Grid.Column="1"  Grid.Row="4"/>
+        <TextBox Visibility="Visible" Name="txtFullName" Grid.Column="1"  Grid.Row="4" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+
+        <!--age-->
+        <Label Name="lblAge" Visibility="Visible" Content="age" Grid.Column="1"  Grid.Row="5"/>
+        <TextBox Visibility="Visible" Name="txtAge" Grid.Column="1"  Grid.Row="5" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+
+        <!--Department-->
+        <Label Name="lblDepartment" Visibility="Visible" Content="Department" Grid.Column="3"  Grid.Row="5"/>
+        <ComboBox Visibility="Visible" Name="cbDepartment" Grid.Column="3"  Grid.Row="5" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+
+        <!--Salary-->
+        <Label Name="lblSalary" Visibility="Visible" Content="Salary" Grid.Column="1"  Grid.Row="6"/>
+        <TextBox Visibility="Visible" Name="txtSalary" Grid.Column="1"  Grid.Row="6" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+
+        <!--Bio-->
+        <Label Name="lblBio" Visibility="Visible" Content="Bio" Grid.Column="3"  Grid.Row="6"/>
+        <TextBox Visibility="Visible" Name="txtBio" Grid.Column="3" Grid.RowSpan="2" Grid.Row="6" Height="70" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" TextWrapping="Wrap"/>
+
+        <Button Name="btnSave" Visibility="Visible" Content="Save" BorderBrush="LimeGreen" BorderThickness="1" Background="White" Grid.Column="3"  Grid.Row="8" Width="50" Height="30" Click="btnSave_Click"/>
+        <!--Editing page-->
+
+
+        
+        <ListView Name="lstEmployees" Grid.Column="5" Grid.Row="1" Grid.RowSpan="8" SelectionChanged="lstEmployees_SelectionChanged"/>
+
+        
+
+    </Grid>
+    
+
+</Window>
