@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace VirtualOffice
 {
@@ -153,6 +154,10 @@ namespace VirtualOffice
             ListViewItem newItem = new();
             newItem.Content = newEmployee.GetInfo();
             newItem.Tag = newEmployee;
+            newItem.BorderBrush = new SolidColorBrush(Colors.LimeGreen);
+            newItem.BorderThickness = new Thickness(1);
+            newItem.Padding = new Thickness(5);
+
             //lägg till employeen i listview:n
             lstEmployees.Items.Add(newItem);
 
