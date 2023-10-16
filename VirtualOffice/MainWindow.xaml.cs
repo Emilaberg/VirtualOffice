@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace VirtualOffice
 {
@@ -20,6 +9,7 @@ namespace VirtualOffice
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Bool for toggle visibility
         private bool visibility = true;
 
         public MainWindow()
@@ -27,17 +17,18 @@ namespace VirtualOffice
 
             InitializeComponent();
             ToggleVisibility();
-            
+
+            //Clearing employeelist and adding departments to combobox and employees to listview
             UpdateUi();
-            
+
 
 
         }
-
+        //Updates the listview, this is called in the constructor.
         private void UpdateUi()
         {
             lstEmployees.Items.Clear();
-            
+
             //TEmporary
 
 
@@ -48,12 +39,14 @@ namespace VirtualOffice
 
             foreach (Employee employee in employeeManager.employees)
             {
+                //runs a method in ViewManager that updates the employeelist on the front end. 
                 lstEmployees.Items.Add(ViewManager.UpdateEmployeeList(lstEmployees, employee));
             }
         }
 
         private void BtnRegisterEmployee_Click(object sender, RoutedEventArgs e)
         {
+            //Toggles visibility when clicking on the register button.
             ToggleVisibility();
         }
 
@@ -63,7 +56,7 @@ namespace VirtualOffice
             string visible = "Visible";
             string hidden = "hidden";
 
-            if(this.visibility == false)
+            if (this.visibility == false)
             {
                 visibility = visible;
                 this.visibility = true;
@@ -74,8 +67,8 @@ namespace VirtualOffice
                 this.visibility = false;
             }
 
-            if(visibility == "hidden") 
-            { 
+            if (visibility == "hidden")
+            {
                 brEdit.Visibility = Visibility.Hidden;
 
                 lblName.Visibility = Visibility.Hidden;
@@ -83,13 +76,13 @@ namespace VirtualOffice
 
                 lblLName.Visibility = Visibility.Hidden;
                 txtLname.Visibility = Visibility.Hidden;
-                
+
                 lblFullName.Visibility = Visibility.Hidden;
                 txtFullName.Visibility = Visibility.Hidden;
-                
+
                 lblAge.Visibility = Visibility.Hidden;
                 txtAge.Visibility = Visibility.Hidden;
-                
+
                 lblDepartment.Visibility = Visibility.Hidden;
                 cbDepartment.Visibility = Visibility.Hidden;
 
@@ -98,10 +91,11 @@ namespace VirtualOffice
 
                 lblSalary.Visibility = Visibility.Hidden;
                 txtSalary.Visibility = Visibility.Hidden;
-                
+
                 btnSave.Visibility = Visibility.Hidden;
 
-            } else
+            }
+            else
             {
                 brEdit.Visibility = Visibility.Visible;
 
@@ -120,8 +114,8 @@ namespace VirtualOffice
                 lblDepartment.Visibility = Visibility.Visible;
                 cbDepartment.Visibility = Visibility.Visible;
 
-                lblBio.Visibility = Visibility.Hidden;
-                txtBio.Visibility = Visibility.Hidden;
+                lblBio.Visibility = Visibility.Visible;
+                txtBio.Visibility = Visibility.Visible;
 
                 lblSalary.Visibility = Visibility.Visible;
                 txtSalary.Visibility = Visibility.Visible;
@@ -130,30 +124,27 @@ namespace VirtualOffice
             }
         }
 
+        //opens the editEmployee page
         private void BtnEditEmployee_Click(object sender, RoutedEventArgs e)
         {
+            //Selects the selected employee and saves it.
             ListViewItem selecteditem = (ListViewItem)lstEmployees.SelectedItem;
             Employee selectedViewTag = (Employee)selecteditem.Tag;
 
-            foreach (Employee employee in employeeManager.employees)
-            {
-                if(employee.GetId() == selectedViewTag.GetId())
-                {
-                    
-                    EditEmployee editEmployeeWindow = new EditEmployee(employee.GetData());
-                    editEmployeeWindow.Show();
 
-                    Close();
-                }
-            }
-           
+            //Creating a new edit window with the selected employee Id, shows it and closes the mainwindow.
+            EditEmployee editEmployeeWindow = new EditEmployee(selectedViewTag.GetId());
+            editEmployeeWindow.Show();
+            Close();
         }
 
+        //shows the edit button if you select a employee
         private void lstEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             btnEditEmployee.Visibility = Visibility.Visible;
         }
 
+        //creates and saves the new employee
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             //Skapa en ny employee och Sätt alla värden som man skrivit in till employee
@@ -164,7 +155,7 @@ namespace VirtualOffice
             newItem.Tag = newEmployee;
             //lägg till employeen i listview:n
             lstEmployees.Items.Add(newItem);
-            
+
             //lägg till den i EmployeeManager
             employeeManager.employees.Add(newEmployee);
 
@@ -174,11 +165,15 @@ namespace VirtualOffice
             txtLname.Text = "";
             txtAge.Text = "";
             txtFullName.Text = "";
-            txtAge.Text = "";
             txtBio.Text = "";
             txtSalary.Text = "";
             cbDepartment.SelectedIndex = -1;
 
+        }
+        //change the fullname text.
+        private void OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtFullName.Text = $"{txtFname.Text} {txtLname.Text}";
         }
     }
 }

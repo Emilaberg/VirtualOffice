@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VirtualOffice
+﻿namespace VirtualOffice
 {
     internal class Person
     {
@@ -22,6 +16,8 @@ namespace VirtualOffice
             this.Age = age;
             this.FullName = firstName + " " + lastName;
         }
+
+        //Default BIO
         public virtual string ShowBio()
         {
             return "Hi, I haven't added any bio yet!";

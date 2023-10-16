@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VirtualOffice
+﻿namespace VirtualOffice
 {
     internal class Employee : Person
     {
@@ -20,30 +14,28 @@ namespace VirtualOffice
             this.Department = department;
         }
 
-
+        //returns a string to use in the employee listview 
         public string GetInfo()
         {
-            return $"{base.FullName}, Ålder: {base.Age} Lön: {Salary}, Kontor: {Department}";
+            return $"Fullname: {base.FullName}, Ålder: {base.Age} Lön: {Salary} kr, Kontor: {Department}";
         }
 
+        //Gets the current employee ID
         public int GetId()
         {
             return base.id;
         }
-
-        public object GetData()
+        //shows the current employees bio, if there is none, the person bio will show instead.
+        public override string ShowBio()
         {
-            return new
+            if (this.Bio.Trim().Length > 0)
             {
-                Id = base.id,
-                Fname = base.FirstName,
-                Lname = base.Lastname,
-                FullName = base.FullName,
-                Age = base.Age,
-                salary = this.Salary,
-                bio = this.Bio,
-                Department = this.Department
-            };
+                return this.Bio;
+            }
+            else
+            {
+                return base.ShowBio();
+            }
         }
     }
 }

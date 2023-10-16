@@ -5,10 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VirtualOffice"
         mc:Ignorable="d"
-        Title="EditEmployee" Height="450" Width="800">
+        Title="EditEmployee" Height="500" Width="700">
     <Grid>
-        <TextBox Name="txtBox" HorizontalAlignment="Left" Height="255" Margin="168,66,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="401"/>
-        <Button Name="btnDelete" Content="Delete" Margin="612,351,49,22" Click="BtnDelete_Click" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Label Name="lblEmployee" Content="Edit Employee" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" FontSize="22" HorizontalAlignment="Center"/>
+
+        <!--Editing page-->
+        <Border Visibility="Visible" BorderBrush="Black" Grid.Column="1"  Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="6" BorderThickness="1" CornerRadius="10" Margin="-5"/>
+        <!--Firstname-->
+        <Label Name="lblName" Visibility="Visible" Content="Firstname" Grid.Column="1"  Grid.Row="3"/>
+        <TextBox Visibility="Visible" Name="txtFname" Grid.Column="1"  Grid.Row="3" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" TextChanged="OnTextChanged"/>
+
+        <!--Lastname-->
+        <Label Name="lblLName" Visibility="Visible" Content="Lastname" Grid.Column="3"  Grid.Row="3"/>
+        <TextBox Visibility="Visible" Name="txtLname" Grid.Column="3"  Grid.Row="3" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" TextChanged="OnTextChanged"/>
+
+        <!--Fullname-->
+        <Label Name="lblFullName" Visibility="Visible" Content="Fullname" Grid.Column="1"  Grid.Row="4"/>
+        <TextBox Name="txtFullName" IsReadOnly="True" Visibility="Visible" Grid.Column="1"  Grid.Row="4" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+
+        <!--age-->
+        <Label Name="lblAge" Visibility="Visible" Content="age" Grid.Column="1"  Grid.Row="5"/>
+        <TextBox Visibility="Visible" Name="txtAge" Grid.Column="1"  Grid.Row="5" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+
+        <!--Department-->
+        <Label Name="lblDepartment" Visibility="Visible" Content="Department" Grid.Column="3"  Grid.Row="5"/>
+        <ComboBox Visibility="Visible" Name="cbDepartment" Grid.Column="3"  Grid.Row="5" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+
+        <!--Salary-->
+        <Label Name="lblSalary" Visibility="Visible" Content="Salary" Grid.Column="1"  Grid.Row="6"/>
+        <TextBox Visibility="Visible" Name="txtSalary" Grid.Column="1"  Grid.Row="6" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+
+        <!--Bio-->
+        <Border Visibility="Visible" BorderBrush="Green" Grid.Column="5"  Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="4" BorderThickness="1" CornerRadius="10" Margin="-5"/>
+
+        <Label Name="lblBio" Visibility="Visible" Content="About Me"  Grid.Column="5" Grid.Row="1" FontSize="22" HorizontalAlignment="Center"/>
+        <TextBox Name="txtBio" Visibility="Visible" Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="4" TextWrapping="Wrap"/>
+
+        
+        <!--Editing page-->
+
+        <Button Name="btnSave" Content="Save" Grid.Column="5" Grid.Row="9" Height="40" Width="70" HorizontalAlignment="Right" Background="White" BorderBrush="LimeGreen" BorderThickness="1" Click="btnSave_Click"/>
+        <Button Name="btnDelete" Content="Remove" Grid.Column="6" Grid.Row="9" Height="30" Width="100" HorizontalAlignment="Center" Background="White" BorderBrush="Red" BorderThickness="1" Click="BtnDelete_Click"/>
     </Grid>
 </Window>

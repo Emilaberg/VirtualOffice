@@ -41,15 +41,15 @@
         <Border Name="brEdit" Visibility="Visible" BorderBrush="Black" Grid.Column="1"  Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="6" BorderThickness="1" CornerRadius="10" Margin="-5"/>
         <!--Firstname-->
         <Label Name="lblName" Visibility="Visible" Content="Firstname" Grid.Column="1"  Grid.Row="3"/>
-        <TextBox Visibility="Visible" Name="txtFname" Grid.Column="1"  Grid.Row="3" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+        <TextBox Visibility="Visible" Name="txtFname" Grid.Column="1"  Grid.Row="3" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" TextChanged="OnTextChanged"/>
 
         <!--Lastname-->
         <Label Name="lblLName" Visibility="Visible" Content="Lastname" Grid.Column="3"  Grid.Row="3"/>
-        <TextBox Visibility="Visible" Name="txtLname" Grid.Column="3"  Grid.Row="3" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+        <TextBox Visibility="Visible" Name="txtLname" Grid.Column="3"  Grid.Row="3" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" TextChanged="OnTextChanged"/>
 
         <!--Fullname-->
         <Label Name="lblFullName" Visibility="Visible" Content="Fullname" Grid.Column="1"  Grid.Row="4"/>
-        <TextBox Visibility="Visible" Name="txtFullName" Grid.Column="1"  Grid.Row="4" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
+        <TextBox IsReadOnly="True" Visibility="Visible" Name="txtFullName" Grid.Column="1"  Grid.Row="4" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1"/>
 
         <!--age-->
         <Label Name="lblAge" Visibility="Visible" Content="age" Grid.Column="1"  Grid.Row="5"/>
@@ -65,7 +65,7 @@
 
         <!--Bio-->
         <Label Name="lblBio" Visibility="Visible" Content="Bio" Grid.Column="3"  Grid.Row="6"/>
-        <TextBox Visibility="Visible" Name="txtBio" Grid.Column="3" Grid.RowSpan="2" Grid.Row="6" Height="70" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" TextWrapping="Wrap"/>
+        <TextBox Name="txtBio" Visibility="Visible" Grid.Column="3" Grid.RowSpan="2" Grid.Row="6" Height="70" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="1" TextWrapping="Wrap"/>
 
         <Button Name="btnSave" Visibility="Visible" Content="Save" BorderBrush="LimeGreen" BorderThickness="1" Background="White" Grid.Column="3"  Grid.Row="8" Width="50" Height="30" Click="btnSave_Click"/>
         <!--Editing page-->

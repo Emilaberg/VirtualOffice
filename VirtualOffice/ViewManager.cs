@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace VirtualOffice
 {
     internal static class ViewManager
     {
-        
-
+        //Creates a new listviewitem with employee
         public static ListViewItem UpdateEmployeeList(ListView employeeList, Employee employee)
         {
             ListViewItem item = new();
@@ -19,6 +13,6 @@ namespace VirtualOffice
             return item;
         }
 
-        
+
     }
 }
